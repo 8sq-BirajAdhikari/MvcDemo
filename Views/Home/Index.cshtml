@@ -1,0 +1,38 @@
+﻿@model List<MvcDemo.Models.Weather>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+}
+else
+{
+    <div class="container mt-4">
+        <h2 class="mb-3">Weekly Weather Forecast</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Day</th>
+                    <th>Condition</th>
+                    <th>Temperature (°C)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var weather in Model)
+                {
+                    <tr>
+                        <td>@weather.Day</td>
+                        <td>@weather.Condition</td>
+                        <td>@weather.TemperatureCelsius °C</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
