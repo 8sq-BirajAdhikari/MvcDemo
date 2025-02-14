@@ -15,7 +15,7 @@ namespace MvcDemo.Controllers
 
         public IActionResult Index()
         {
-            return View(WeeklyForecast);
+            return View(weeklyForecastList);
         }
 
         public IActionResult Privacy()
@@ -29,7 +29,7 @@ namespace MvcDemo.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public static List<Weather> WeeklyForecast = new()
+        public static List<Weather> weeklyForecastList = new()
         {
             new Weather { Day = "Monday", Condition = "Sunny", TemperatureCelsius = 25 },
             new Weather { Day = "Tuesday", Condition = "Partly Cloudy", TemperatureCelsius = 22 },
